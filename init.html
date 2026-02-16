@@ -1,11 +1,12 @@
+<!-- v1 deploy-force 2026-02-16T20:00:00Z -->
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head><meta charset="UTF-8"><title>Versionador Init :) </title></head>
+<head><meta charset="UTF-8"><title>Versionador Init</title></head>
 <body>
 <script src="https://platform.staticpipefy.com/pipefy-app.js" onerror="console.error('[Versionador] Failed to load Pipefy SDK')"></script>
 <script>
   console.log('[Versionador] SDK loaded:', typeof PipefyApp);
-  var BASE_URL = 'https://zaninelic.github.io/pipefy-versioner';
+  var SUPABASE_URL = 'https://iervmwscvspisxbktbpx.supabase.co';
   try {
     PipefyApp.initCall({
       'pipe-buttons': function(p, pipe) {
@@ -19,7 +20,7 @@
               console.log('[Versionador] Opening sidebar for pipe:', pipeId);
               p.sidebar({
                 title: 'Versionador de Pipes',
-                url: BASE_URL + '/sidebar.html?pipeId=' + encodeURIComponent(pipeId)
+                url: SUPABASE_URL + '/functions/v1/versioner-sidebar-ui?pipeId=' + encodeURIComponent(pipeId)
               });
             }
           },
@@ -30,7 +31,7 @@
               console.log('[Versionador] Opening snapshot for pipe:', pipeId);
               p.sidebar({
                 title: 'Criar Snapshot',
-                url: BASE_URL + '/snapshot.html?pipeId=' + encodeURIComponent(pipeId)
+                url: SUPABASE_URL + '/functions/v1/versioner-snapshot-ui?pipeId=' + encodeURIComponent(pipeId)
               });
             }
           }
